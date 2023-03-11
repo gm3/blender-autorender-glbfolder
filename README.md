@@ -67,6 +67,7 @@ for index, glb_file in enumerate(glb_files):
     for obj in collection.objects:
         obj.select_set(True)
     bpy.ops.object.delete(use_global=False)
+    bpy.ops.outliner.orphans_purge()
     
     # Update progress in console
     print(f'Rendered {index+1}/{len(glb_files)}: {glb_file}')
@@ -81,4 +82,5 @@ bpy.data.collections.remove(collection)
 bpy.context.window_manager.progress_update(0)
 
 print("Rendering complete!")
+
 ```
