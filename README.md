@@ -60,7 +60,7 @@ for index, glb_file in enumerate(glb_files):
         collection.objects.link(obj)
     
     # Take the shot
-    bpy.context.scene.render.filepath = os.path.join(blend_file_directory, f"render_{index}.png")
+    bpy.context.scene.render.filepath = os.path.join(blend_file_directory, f"render_{index+1}.png")
     bpy.ops.render.render(write_still=True)
     
     # Remove the imported object
@@ -82,5 +82,6 @@ bpy.data.collections.remove(collection)
 bpy.context.window_manager.progress_update(0)
 
 print("Rendering complete!")
+
 
 ```
